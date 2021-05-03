@@ -1,0 +1,52 @@
+version: '3.4'
+
+services:
+  innovabitsecc:
+    image: innovabits/innovabitsecc:latest
+    volumes:
+        - './logs:/app/logs'
+#        - './localtime:/etc/localtime:ro'
+    restart: on-failure
+    env_file:
+     - .env
+    ports:
+        - "5030:80"
+    depends_on: 
+      - mysqldb
+    networks:
+      - backend
+
+  eccweb:
+    image: innovabits/eccweb:latest
+    volumes:
+        - './logs:/app/logs'
+#        - './localtime:/etc/localtime:ro'
+    restart: on-failure
+    env_file:
+     - .env
+    ports:
+        - "5032:80"
+    depends_on: 
+      - mysqldb
+    networks:
+      - backend
+
+  mysqldb:
+    image: mysql:5.7
+    volumes:
+        - mysql-db:/var/lib/mysql
+        - ./mysqlinit:/docker-entrypoint-initdb.d
+#        - '/etc/localtime:/etc/localtime:ro'
+    env_file:
+     - .env
+    ports:
+        - "3307:3306"
+    networks:
+      - backend
+    
+volumes:
+  mysql-db:
+
+networks:
+  backend:
+    driver: bridge 
