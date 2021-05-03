@@ -10,11 +10,13 @@ This procedure requires [docker](https://docs.docker.com/engine/install/) and [d
 
 
 ### How to run
-Rename .env.example file to .env and start docker-compose, default values should work:
+Clone repository, rename .env.example file to .env and start docker-compose, default values should work:
 
 ```bash
-docker_admin> mv .env.example .env
-docker_admin> docker-compose up -d
+$ git clone https://github.com/innovabits/ecc
+$ cd ecc
+$ mv .env.example .env
+$ docker-compose up -d
 ```
 
 ### Access & Usage
@@ -28,7 +30,7 @@ You should now be able to access your ECC Web App on port 5032 and configure an 
 ### CUCM Profile
 To enable External Call Control Feature on CUCM, add a new External Call Control Profile (Call Rounting -> External Call Control Profile):
 
- ![Alt text](img/cucm_ecc.png?raw=true "CUCM ECC Profile")
+![CUCM ECC Profile](https://raw.githubusercontent.com/innovabits/ecc/master/img/cucm_ecc.png)
 
 > :warning: **NOTICE:**
 
@@ -37,12 +39,12 @@ To enable External Call Control Feature on CUCM, add a new External Call Control
  ### CUCM Route Pattern or Directory Number
  Then, you need to configure a Route Pattern or Directory Number with the ECC profile:
 
- ![Alt text](img/cucm_dn.png?raw=true "CUCM Directory Number")
+ ![CUCM Directory Number](https://raw.githubusercontent.com/innovabits/ecc/master/img/cucm_dn.png)
 
 
 ## Add contacts in ECC Web
 Login in ECC Web http://0.0.0.0:5032 (User:admin / password: admin) and add contacts for External Display:
-![Alt text](img/ecc_phone.png?raw=true "Add Phone")
+![Add Phone](https://raw.githubusercontent.com/innovabits/ecc/master/img/ecc_phone.png)
 
 ## Troubleshooting 
 - Unified CM periodically sends Keep-Alive messages to the web service. The message is a HTTP HEAD request and the ECC Web Service must respond and log response to this and CURRI requests. You can see docker logs messages:
