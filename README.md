@@ -46,6 +46,11 @@ To enable External Call Control Feature on CUCM, add a new External Call Control
 Login in ECC Web http://0.0.0.0:5032 (User:admin / password: admin) and add contacts for External Display:
 ![Add Phone](https://raw.githubusercontent.com/innovabits/ecc/master/img/ecc_phone.png)
 
+
+## Validate
+When a incoming call is received in the line or Route Pattern configured, CUCM will send a request to ECC Web Service and deny or permit the call with the contact name found it.
+![ECC Call ](https://raw.githubusercontent.com/innovabits/ecc/master/img/ecc_call.png)
+
 ## Troubleshooting 
 - Unified CM periodically sends Keep-Alive messages to the web service. The message is a HTTP HEAD request and the ECC Web Service must respond and log response to this and CURRI requests. You can see docker logs messages:
 
