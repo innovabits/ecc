@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   innovabitsecc:
-    image: innovabits/innovabitsecc:latest
+    image: innovabits/cucm-ecc-service:latest
     volumes:
         - './logs:/app/logs'
 #        - './localtime:/etc/localtime:ro'
@@ -17,7 +17,7 @@ services:
       - backend
 
   eccweb:
-    image: innovabits/eccweb:latest
+    image: innovabits/eccweb
     volumes:
         - './logs:/app/logs'
 #        - './localtime:/etc/localtime:ro'
